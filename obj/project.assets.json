@@ -2029,11 +2029,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\2DS\\RpgApi2\\RpgApi.csproj",
+      "projectUniqueName": "D:\\2DS\\RpgApi\\RpgApi.csproj",
       "projectName": "RpgApi",
-      "projectPath": "D:\\2DS\\RpgApi2\\RpgApi.csproj",
+      "projectPath": "D:\\2DS\\RpgApi\\RpgApi.csproj",
       "packagesPath": "C:\\Users\\EtecHAS\\.nuget\\packages\\",
-      "outputPath": "D:\\2DS\\RpgApi2\\obj\\",
+      "outputPath": "D:\\2DS\\RpgApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EtecHAS\\AppData\\Roaming\\NuGet\\NuGet.Config",

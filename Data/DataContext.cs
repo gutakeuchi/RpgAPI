@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RpgApi.Models;
 using RpgApi.Models.Enuns;
+using RpgApi2.Utils;
 
 namespace RpgApi.Data
 {
@@ -13,6 +14,7 @@ namespace RpgApi.Data
 
         public DbSet<Personagem> Personagens { get; set; }
         public DbSet<Arma> Armas { get; set; }
+        public DbSet<Usuario> Usuarios {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +40,20 @@ namespace RpgApi.Data
                 new Arma() { Id = 7, Nome = "Espingarda pump", Dano = 85 }
     
             );
+
+            Usuario user = new Usuario();
+
+            Criptografia.CriarPasswordHash("123456", out byte[] hash, out byte[] salt);
+            user.Id = 1;
+            user.Username = "UsuarioAdmin";
+            user.PasswordString = string.Empty;
+            user.PasswordHash = hash;
+            user.PasswordSalt = salt;
+            user.Perfil = "Admin";
+            
+            modelBuilder.Entity<Usuario>().HasData(user);
+
+            modelBuilder.Entity<Usuario>().Property(u => u.Perfil).HasDefaultValue("Jogador");
         }
 
        
