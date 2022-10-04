@@ -31,13 +31,13 @@ namespace RpgApi.Data
 
             modelBuilder.Entity<Arma>().HasData
             (
-                new Arma() { Id = 1, Nome = "Famas", Dano = 79 },
-                new Arma() { Id = 2, Nome = "AK-47", Dano = 90 },
-                new Arma() { Id = 3, Nome = "Revólver", Dano = 60 },
-                new Arma() { Id = 4, Nome = "Escopeta", Dano = 92 },
-                new Arma() { Id = 5, Nome = "Colt 45", Dano = 79},
-                new Arma() { Id = 6, Nome = "Pistola Glock 9mm", Dano = 95 },
-                new Arma() { Id = 7, Nome = "Espingarda pump", Dano = 85 }
+                new Arma() { Id = 1, Nome = "Famas", Dano = 79, PersonagemId = 1 },
+                new Arma() { Id = 2, Nome = "AK-47", Dano = 90, PersonagemId = 2 },
+                new Arma() { Id = 3, Nome = "Revólver", Dano = 60, PersonagemId = 3},
+                new Arma() { Id = 4, Nome = "Escopeta", Dano = 92, PersonagemId = 4},
+                new Arma() { Id = 5, Nome = "Colt 45", Dano = 79, PersonagemId = 5},
+                new Arma() { Id = 6, Nome = "Pistola Glock 9mm", Dano = 95, PersonagemId = 6},
+                new Arma() { Id = 7, Nome = "Espingarda pump", Dano = 85, PersonagemId = 7}
     
             );
 
@@ -50,7 +50,7 @@ namespace RpgApi.Data
             user.PasswordHash = hash;
             user.PasswordSalt = salt;
             user.Perfil = "Admin";
-            
+
             modelBuilder.Entity<Usuario>().HasData(user);
 
             modelBuilder.Entity<Usuario>().Property(u => u.Perfil).HasDefaultValue("Jogador");
