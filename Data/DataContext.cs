@@ -11,10 +11,12 @@ namespace RpgApi.Data
         {
 
         }
-
+        public DbSet<Habilidade> Habilidades { get; set; }
+        public DbSet<PersonagemHabilidade> PersonagemHabilidades { get; set; }
         public DbSet<Personagem> Personagens { get; set; }
         public DbSet<Arma> Armas { get; set; }
         public DbSet<Usuario> Usuarios {get; set;}
+        public DbSet<Disputa> Disputas{get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +41,29 @@ namespace RpgApi.Data
                 new Arma() { Id = 6, Nome = "Pistola Glock 9mm", Dano = 95, PersonagemId = 6},
                 new Arma() { Id = 7, Nome = "Espingarda pump", Dano = 85, PersonagemId = 7}
     
+            );
+
+            modelBuilder.Entity<PersonagemHabilidade>()
+                .HasKey(ph => new {ph.PersonagemId, ph.HabilidadeId});
+
+            modelBuilder.Entity<Habilidade>().HasData
+            (
+                new Habilidade(){Id=1, Nome="Adormecer",Dano=39},
+                new Habilidade(){Id=2, Nome="Congelar",Dano=41},
+                new Habilidade(){Id=3, Nome="Hipnotizar",Dano=37}
+            );
+
+            modelBuilder.Entity<PersonagemHabilidade>().HasData
+            (
+                new PersonagemHabilidade() {PersonagemId = 1, HabilidadeId = 1},
+                new PersonagemHabilidade() {PersonagemId = 1, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 2, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 3, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 3, HabilidadeId = 3},
+                new PersonagemHabilidade() {PersonagemId = 4, HabilidadeId = 3},
+                new PersonagemHabilidade() {PersonagemId = 5, HabilidadeId = 1},
+                new PersonagemHabilidade() {PersonagemId = 6, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 7, HabilidadeId = 3}
             );
 
             Usuario user = new Usuario();
